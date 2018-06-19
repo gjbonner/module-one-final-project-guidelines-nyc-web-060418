@@ -5,15 +5,14 @@ class Chore < ActiveRecord::Base
 #update chores
 #list chores
 require 'pry'
-def choices
-  puts "What would you like to do?"
-  @input = gets.chomp.capitalize
-  input = @input
-  binding.pry
-  if input == "Create Chore"
-    create_chore
-  end
-end
+# def choices
+#   puts "What would you like to do?"
+#   @input = gets.chomp.capitalize
+#   input = @input
+#   if input == "Create Chore"
+#     create_chore
+#   end
+# end
 
 
 def list_chores
@@ -33,7 +32,18 @@ def delete_chore
   puts "Enter a chore to delete"
   @input = gets.chomp.capitalize
   input = @input
-  Chore.where(chore: input).destroy_all
+  Chore.delete_all(chore: input)
+end
+
+def update_chore
+  puts "Enter a chore to update"
+  @input = gets.chomp.capitalize
+  input = @input
+  Chore.find_by(chore: input)
+  puts "Enter an updated chore"
+  @updated_chore = gets.chomp.capitalize
+  updated_chore = @updated_chore
+  Chore.update(:chore => updated_chore)
 end
 
 
