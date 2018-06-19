@@ -1,4 +1,4 @@
-class CreateAssignChore < ActiveRecord::Migration[5.0]
+class CreateAssignedChore < ActiveRecord::Migration[5.0]
   def change
     create_table :assigned_chores do |t|
       t.references :roommate

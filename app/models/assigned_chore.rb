@@ -1,4 +1,7 @@
 class AssignedChore < ActiveRecord::Base
-  has_one :roommate
-  has_one :chore
+  belongs_to :roommate
+  belongs_to :chore
+
+
+
 end
