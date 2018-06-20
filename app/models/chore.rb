@@ -10,7 +10,7 @@ require 'pry'
 
 def list_chores
   Chore.all.select do |chore|
-    p chore
+    puts chore.chore
   end
 end
 

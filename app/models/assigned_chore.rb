@@ -23,25 +23,33 @@ class AssignedChore < ActiveRecord::Base
     Chore.all.each do |chore|
       if chore.chore == task
         AssignedChore.create(roommate: @roommate_id, chore: chore)
+        puts "Chore successfully assigned to #{person}"
       end
     end
   end
 
   def delete_assigned_chores
-    puts 'enter roommmate id'
-    input =  gets.chomp.to_i
-    AssignedChore.delete_all(roommate_id: input)
+    puts 'enter roommate name'
+    input =  gets.chomp.capitalize
+    AssignedChore.all.select do |chore|
+      if chore.roommate.name == input
+        chore.delete
+      end
+    end
+    puts 'Good job on doing your chores!'
   end
+  #AssignedChore.delete_all(roommate_id: input)
+
 
   def list_assigned_chores
-    puts 'enter your id'
-    input = gets.chomp.to_i
+    puts 'enter your name'
+    input = gets.chomp.capitalize
     AssignedChore.all.select do |chore|
-      if chore.roommate_id == input
-        p chore.chore
+      if chore.roommate.name == input
+        puts chore.chore.chore
+        puts 'Dont forget to do your chores!'
       end
     end
   end
-
 
 end

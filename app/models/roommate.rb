@@ -32,15 +32,16 @@ class Roommate < ActiveRecord::Base
   def list_methods
      puts <<-STRING
      -----------------------------------------
-     What would you like to do?
-     Create a new chore? Type 'create'
-     List chores? Type ‘list’
-     List your assigned chores? Type 'my chores'
-     Delete an assigned chore? Type 'remove a chore'
-     Update your assignments? Type ‘update’
-     Delete a chore? Type 'delete'
-     Assign a chore? Type 'assign chore'
-     End your session? Type ‘end'
+     * What would you like to do?
+     - Create a new chore? Type 'create'
+     * List chores? Type ‘list’
+     - List your assigned chores? Type 'my chores'
+     * Delete your finished chores? Type 'remove my chores'
+     - Update your assignments? Type ‘update’
+     * Delete a chore? Type 'delete'
+     - Assign a chore? Type 'assign chore'
+     * End your session? Type ‘end'
+     -----------------------------------------
      STRING
      input = gets.chomp.capitalize
       if input == "List"
@@ -57,7 +58,7 @@ class Roommate < ActiveRecord::Base
         AssignedChore.new.assign_chore
       elsif input == "My chores"
         AssignedChore.new.list_assigned_chores
-      elsif input == "Remove a chore"
+      elsif input == "Remove my chores"
         AssignedChore.new.delete_assigned_chores
       else
         puts "Invalid command, try again"
