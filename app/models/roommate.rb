@@ -40,7 +40,7 @@ class Roommate < ActiveRecord::Base
      - Update your assignments? Type ‘update’
      * Delete a chore? Type 'delete'
      - Assign a chore? Type 'assign chore'
-     * End your session? Type ‘end'
+     * End your session? Type 'end'
      -----------------------------------------
      STRING
      input = gets.chomp.capitalize
