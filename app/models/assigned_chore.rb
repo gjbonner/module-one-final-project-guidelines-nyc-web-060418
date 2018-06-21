@@ -3,7 +3,8 @@ require 'pry'
 class AssignedChore < ActiveRecord::Base
   belongs_to :roommate
   belongs_to :chore
-  @@my_chores = nil
+
+  @@my_chores = 0
 
   def assign_chore
     @roommate_id = nil
@@ -23,6 +24,7 @@ class AssignedChore < ActiveRecord::Base
       end
     end
     puts "Chore successfully assigned to #{person}"
+    @@my_chores = 1
     else
       puts "Chore assignment failed"
     end
@@ -33,8 +35,9 @@ class AssignedChore < ActiveRecord::Base
     input =  gets.chomp.capitalize
     AssignedChore.all.select do |chore|
       if chore.roommate.name == input
-        chore.delete
         @@my_chores = 0
+        p @@my_chores
+        chore.delete
       end
     end
     puts "Good job on doing your chores!"
@@ -43,16 +46,15 @@ class AssignedChore < ActiveRecord::Base
   def list_assigned_chores
     puts 'enter your name'
     input = gets.chomp.capitalize
+    #binding.pry
+    if @@my_chores == 0
+      puts "You have no chores!"
+    else
     AssignedChore.all.select do |chore|
-      if chore.roommate.name == input
-        @@my_chores = 1
+    #  binding.pry
+      chore.roommate.name == input
         puts chore.chore.chore
-      end
-      if @@my_chores == nil || @@my_chores == 0
-        puts "You have no chores!"
       end
     end
   end
-
-
 end
