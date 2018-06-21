@@ -44,6 +44,7 @@ VERSION 0.1
 ## AUTHORS
 
 Giles Bonner
+
 Matt Maher
 
 ### ACKNOWLEDGEMENTS
