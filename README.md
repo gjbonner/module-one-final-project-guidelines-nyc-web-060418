@@ -19,14 +19,22 @@ gem ```rake```
 ## INSTALLATION
 
 Once installed, run the below to bundle the above gems
-'bundle install'
+
+```bundle install```
+
 then run the below to create tables
-'rake db:migrate'
+
+```rake db:migrate```
+
 run the below to seed instances
-'rake db:seed'
-DEPLOYMENT
-To begin program,
-'ruby bin/run.rb'
+
+```rake db:seed```
+
+#### DEPLOYMENT
+
+To begin program
+
+```ruby bin/run.rb```
 
 ## BUILT WITH
 
