@@ -15,11 +15,15 @@ class AssignedChore < ActiveRecord::Base
     end
     puts "Enter a task"
     task = gets.chomp.capitalize
-    Chore.all.each do |chore|
+    if Chore.exists?(chore: task)
+    Chore.all.find do |chore|
       if chore.chore == task
         AssignedChore.create(roommate: @roommate_id, chore: chore)
-        puts "Chore successfully assigned to #{person}"
       end
+    end
+    puts "Chore successfully assigned to #{person}"
+    else
+      puts "Chore assignment failed"
     end
   end
 
@@ -40,8 +44,8 @@ class AssignedChore < ActiveRecord::Base
     AssignedChore.all.select do |chore|
       if chore.roommate.name == input
         puts chore.chore.chore
-        puts 'Dont forget to do your chores!'
       end
     end
+    puts 'Dont forget to do your chores!'
   end
 end

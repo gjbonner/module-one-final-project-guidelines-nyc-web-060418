@@ -12,8 +12,14 @@ end
 def create_chore
   puts "Please enter a chore"
   input = gets.chomp.capitalize
-  Chore.create(chore: input)
+  if Chore.exists?(chore: input)
+    puts "Chore already exists!"
+  else
+    Chore.create(chore: input)
+    puts "Chore #{input} created!"
+  end
 end
+
 
 def delete_chore
   puts "Enter a chore to delete"
