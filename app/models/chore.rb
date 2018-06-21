@@ -1,12 +1,7 @@
 class Chore < ActiveRecord::Base
   belongs_to :roommate
 
-#add chores
-#update chores
-#list chores
 require 'pry'
-
-
 
 def list_chores
   Chore.all.select do |chore|
@@ -17,7 +12,6 @@ end
 def create_chore
   puts "Please enter a chore"
   input = gets.chomp.capitalize
-
   Chore.create(chore: input)
 end
 

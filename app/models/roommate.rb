@@ -34,7 +34,7 @@ class Roommate < ActiveRecord::Base
      -----------------------------------------
      * What would you like to do?
      - Create a new chore? Type 'create'
-     * List chores? Type ‘list’
+     * List all chores? Type ‘list’
      - List your assigned chores? Type 'my chores'
      * Delete your finished chores? Type 'remove my chores'
      - Update your assignments? Type ‘update’
@@ -64,17 +64,15 @@ class Roommate < ActiveRecord::Base
         puts "Invalid command, try again"
       end
       list_methods
-  end
+   end
 
    def exit_program(input = "End")
-     # input = gets.chomp
      if input == "End"
        abort
      end
    end
 
    def option
-         Chore.new.list_chores
-     end
-
+    Chore.new.list_chores
+  end
 end

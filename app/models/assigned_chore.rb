@@ -4,11 +4,6 @@ class AssignedChore < ActiveRecord::Base
   belongs_to :roommate
   belongs_to :chore
 
-  #assign chores
-  #see whos assigned a chore
-  #add delete assigned chores
-
-
   def assign_chore
     @roommate_id = nil
     puts "Enter a roommate name"
@@ -38,8 +33,6 @@ class AssignedChore < ActiveRecord::Base
     end
     puts 'Good job on doing your chores!'
   end
-  #AssignedChore.delete_all(roommate_id: input)
-
 
   def list_assigned_chores
     puts 'enter your name'
@@ -51,5 +44,4 @@ class AssignedChore < ActiveRecord::Base
       end
     end
   end
-
 end
