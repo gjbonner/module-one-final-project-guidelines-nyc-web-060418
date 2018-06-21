@@ -33,15 +33,18 @@ class AssignedChore < ActiveRecord::Base
   def delete_assigned_chores
     puts 'enter roommate name'
     input =  gets.chomp.capitalize
+    if @@my_chores == 0
+      puts "You have no chores to delete"
+    else
     AssignedChore.all.select do |chore|
       if chore.roommate.name == input
         @@my_chores = 0
-        p @@my_chores
         chore.delete
       end
     end
     puts "Good job on doing your chores!"
   end
+end
 
   def list_assigned_chores
     puts 'enter your name'
