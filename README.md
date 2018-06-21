@@ -5,11 +5,16 @@ Our app is designed to be a repository for chores within a household; specifical
 ## PREREQUISITES
 
 source "https://rubygems.org"
-gem "sinatra-activerecord"
-gem "sqlite3"
-gem "pry"
-gem "require_all"
-gem 'rake'
+
+gem ```sinatra-activerecord``` 
+
+gem ```sqlite3```
+
+gem ```pry```
+
+gem ```require_all```
+
+gem ```rake```
 
 ## INSTALLATION
 
