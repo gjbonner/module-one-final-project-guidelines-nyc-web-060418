@@ -49,12 +49,10 @@ end
   def list_assigned_chores
     puts 'enter your name'
     input = gets.chomp.capitalize
-    #binding.pry
     if @@my_chores == 0
       puts "You have no chores!"
     else
     AssignedChore.all.select do |chore|
-    #  binding.pry
       chore.roommate.name == input
         puts chore.chore.chore
       end
